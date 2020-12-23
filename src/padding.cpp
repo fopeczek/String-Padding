@@ -1,6 +1,6 @@
 #include "padding.h"
 
-String Padder::padd_string(String text, int change) {
+String padd_string(String text, int change, int length) {
 	String m_text = text;
 	if (change > 0) {
 		for (int i=1; i <= change; i++){
@@ -11,5 +11,13 @@ String Padder::padd_string(String text, int change) {
 			m_text = m_text+"0";
 		}
 	}
+	if (length>0) {
+		if (m_text.length() < length){
+			for (int i=m_text.length(); i < length; i++){
+				m_text = "0"+m_text;
+			}
+		}
+	}
 	return m_text;
 }
+
